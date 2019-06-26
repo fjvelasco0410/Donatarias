@@ -5,8 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sat.donatarias.bean.IngresaEmpleado;
+import com.sat.donatarias.bean.StringResponse;
 import com.sat.donatarias.dao.AdministrarCatalogosDao;
 import com.sat.donatarias.model.AdministrarCatalogos;
+import com.sat.donatarias.model.BuscarEmpleado;
+import com.sat.donatarias.model.EmpleadoDatos;
+import com.sat.donatarias.model.TareasPendientes;
 import com.sat.donatarias.service.AdministrarCatalogosService;
 
 
@@ -54,6 +59,36 @@ public class AdministrarCatalogosServiceImpl implements AdministrarCatalogosServ
 	}
 	
 	
+
+	@Override
+	public EmpleadoDatos insertarEmpleado(IngresaEmpleado empleado) {
+		return administrarCatalogosDao.insertarEmpleado(empleado);
+	}
+	
+	@Override
+	public List<AdministrarCatalogos> permisos() {
+		
+		return administrarCatalogosDao.permisos();
+	}
+	
+	@Override
+	public List<TareasPendientes> tareas(EmpleadoDatos empleado) {
+		
+		return administrarCatalogosDao.tareas(empleado);
+	}
+	
+	
+	@Override
+	public List<BuscarEmpleado> abogados(EmpleadoDatos empleado) {
+		
+		return administrarCatalogosDao.abogados(empleado);
+	}
+	
+	@Override
+	public StringResponse modificar(String nombre) {
+		
+		return administrarCatalogosDao.modificar(nombre);
+	}
 	
 	
 	

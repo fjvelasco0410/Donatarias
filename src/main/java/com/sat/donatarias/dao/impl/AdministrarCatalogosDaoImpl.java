@@ -4,8 +4,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.sat.donatarias.bean.AdministrarCatalogosBean;
+import com.sat.donatarias.bean.IngresaEmpleado;
+import com.sat.donatarias.bean.StringResponse;
 import com.sat.donatarias.dao.AdministrarCatalogosDao;
 import com.sat.donatarias.model.AdministrarCatalogos;
+import com.sat.donatarias.model.BuscarEmpleado;
+import com.sat.donatarias.model.EmpleadoDatos;
+import com.sat.donatarias.model.TareasPendientes;
+
 
 @Repository
 public class AdministrarCatalogosDaoImpl implements AdministrarCatalogosDao{
@@ -282,6 +289,117 @@ public class AdministrarCatalogosDaoImpl implements AdministrarCatalogosDao{
 		
 		return recibirDon;
 	}
+	
+	@Override
+	public EmpleadoDatos insertarEmpleado(IngresaEmpleado empleado) {
+		
 
+		EmpleadoDatos datos=new EmpleadoDatos();
+		
+		datos.setNombre("Arron");
+		datos.setNumero("1234");
+		datos.setPaterno("Goemz");
+		datos.setMaterno("Martinez");
+		datos.setRfcEmpleado("asdf1234");
+		datos.setRfcCorto("as12");
+
+		
+		return datos; 		
+	}
+	
+	@Override
+	public List<AdministrarCatalogos> permisos(){
+		
+		List<AdministrarCatalogos> recibirDon=new ArrayList<AdministrarCatalogos>();
+		
+		AdministrarCatalogos obj1=new AdministrarCatalogos();
+		obj1.setId(1);
+		obj1.setDescripcion("Administrador");
+		recibirDon.add(obj1);
+		
+		AdministrarCatalogos obj2=new AdministrarCatalogos();
+		obj2.setId(2);
+		obj2.setDescripcion("Abogado");
+		recibirDon.add(obj2);
+		
+		AdministrarCatalogos obj3=new AdministrarCatalogos();
+		obj3.setId(3);
+		obj3.setDescripcion("Administrador de catalogos");
+		recibirDon.add(obj3);
+		
+		AdministrarCatalogos obj4=new AdministrarCatalogos();
+		obj4.setId(4);
+		obj4.setDescripcion("Administrador responsable");
+		recibirDon.add(obj4);
+		
+		return recibirDon;
+
+}
+	
+	@Override
+	public List<TareasPendientes> tareas(EmpleadoDatos empleado){
+		
+		List<TareasPendientes> recibirDon=new ArrayList<TareasPendientes>();
+		
+		TareasPendientes obj1=new TareasPendientes();
+		
+		obj1.setEstadoProcesal("estado procesal");
+		obj1.setNumeroAsunto("numero de asunto");
+		obj1.setNumeroExpendiente("numero de expediente");
+		obj1.setRfc("rfc");
+		obj1.setTipoSolicitud("tipo de solicitud");
+		recibirDon.add(obj1);
+		
+	TareasPendientes obj2=new TareasPendientes();
+		
+		obj1.setEstadoProcesal("estado procesal 2");
+		obj1.setNumeroAsunto("numero de asunto 2");
+		obj1.setNumeroExpendiente("numero de expediente 2");
+		obj1.setRfc("rfc 2");
+		obj1.setTipoSolicitud("tipo de solicitud 2");
+		recibirDon.add(obj2);
+		
+	    
+		
+		return recibirDon;
+
+}
+	
+
+	@Override
+	public List<BuscarEmpleado> abogados(EmpleadoDatos empleado){
+		
+		List<BuscarEmpleado> recibirDon=new ArrayList<BuscarEmpleado>();
+		
+		BuscarEmpleado obj1=new BuscarEmpleado();
+		
+		obj1.setEstadoProcesal("estado procesal");
+		obj1.setNombreEmpleado("numero de asunto");
+		obj1.setTareasPendientes(1);
+		obj1.setNumeroEmpleado("asdf");
+		recibirDon.add(obj1);
+		
+BuscarEmpleado obj2=new BuscarEmpleado();
+		
+		obj1.setEstadoProcesal("estado procesal 2");
+		obj1.setNombreEmpleado("numero de asunto 2");
+		obj1.setTareasPendientes(2);
+		obj1.setNumeroEmpleado("asdf 2");
+		recibirDon.add(obj2);
+	    
+		
+		return recibirDon;
+
+}
+	
+	@Override
+	public StringResponse modificar(String nombre){
+		
+		StringResponse obj1=new StringResponse();
+		obj1.setResponse("Informe de transparencia");
+		
+		return obj1;
+	
+}
 
 }
